@@ -1,0 +1,24 @@
+all topics:
+rest services produce
+rest service consume
+soap service consume
+config server - abhijeet
+spring cosul
+microservices - eureka
+ribbon
+jenkins udemy / ps
+docker udemy / ps
+kubernetes
+pdf returning
+jasper 
+mongodb/mysql database
+scheduler
+kfka communication event based
+aws -- udemy / ps
+aop
+interceptors
+spring security
+sonar 
+junit
+java 8
+java 9

@@ -1,0 +1,4 @@
+https://www.baeldung.com/spring-boot-security-autoconfiguration
+spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+security.user.name=user
+security.basic.enabled=true

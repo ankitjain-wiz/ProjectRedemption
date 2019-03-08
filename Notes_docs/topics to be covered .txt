@@ -22,3 +22,9 @@ sonar
 junit
 java 8
 java 9
+
+angular -ps course study
+angular- udemy course study
+react - ui
+
+aws and docker - cloud 

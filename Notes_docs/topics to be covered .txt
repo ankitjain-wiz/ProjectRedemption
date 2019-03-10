@@ -13,7 +13,7 @@ pdf returning
 jasper 
 mongodb/mysql database
 scheduler
-kfka communication event based
+kafka communication event based
 aws -- udemy / ps
 aop
 interceptors
@@ -22,6 +22,10 @@ sonar
 junit
 java 8
 java 9
+feign 
+
+xml returning service
+soap web service consume
 
 angular -ps course study
 angular- udemy course study

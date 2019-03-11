@@ -23,6 +23,7 @@ junit
 java 8
 java 9
 feign 
+hibernate join fetch
 
 xml returning service
 soap web service consume

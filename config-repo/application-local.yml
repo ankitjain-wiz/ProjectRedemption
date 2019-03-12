@@ -1,0 +1,297 @@
+#
+# //@formatter:off
+# /**
+# *  $Id$
+# *       . * .
+# *     * RRRR  *    Copyright (c) 2018 EUIPO: European Union Intellectual
+# *   .   RR  R   .  Property Office (trade marks and designs)
+# *   *   RRR     *
+# *    .  RR RR  .   ALL RIGHTS RESERVED
+# *     * . _ . *
+# */
+# //@formatter:on
+#
+
+## Properties for control purpose, accesible at /info
+info:
+  app:
+    version: ${project.version}
+    buildTimestamp: ${maven.build.timestamp} GMT
+## Used by admin server, should be aligned with the value defined in logback.xml
+#logging.file: ${server.log.dir}/${server.log.file}
+
+## Server
+server:
+  context-path: ''
+
+management:
+  context-path: /actuator
+  port: ${var.custom.actuator.port}
+  security.enabled: false
+  
+security.basic.enabled: false
+
+## Application
+spring:
+  application.name: payment-microservice
+  messages.basename: i18n/common_error_messages, i18n/messages, i18n/general_messages, i18n/common_services_messages
+
+#### Database configuration ####
+  datasource:
+    url: ${var.datasource.em.url}
+    username: ${var.datasource.em.username}
+    password: ${var.datasource.em.password}
+    driverClassName: com.informix.jdbc.IfxDriver
+
+## HibernateJpaVendorAdapter properties
+  jpa:
+    showSql: false
+    hibernate.dialect: org.hibernate.dialect.InformixDialect
+
+## JSONDoc configuration
+jsondoc:
+  version: 1.0
+  basePath: ${server.context-path}
+  packages[0]: eu.euipo.microservice.payment.ws.controller
+  packages[1]: eu.euipo.microservice.payment.domain
+  playgroundEnabled: true
+  displayMethodAs: URI
+
+var.corporate:
+  kafka:
+    servers: localhost:9092
+    environment: local
+
+var.custom.actuator.port: 8080
+
+## Datasources
+var.datasource:
+  em:
+    url: jdbc:informix-sqli://localhost:60020/ctmcorrec:informixServer=emcorr_tcp
+    username: sopraifx
+    password: 'S0pr41nFX'
+
+### Applications - common parameters ###
+var.app:
+  adm:
+    clientId: "AdmClientId"
+    secret: "secret"
+  boa:
+    host: svdapp312.oami.eu.int
+    port: 14022
+  mps:
+    host: svdapp312.oami.eu.int
+    port: 14002
+  empayp:
+    host: f5devfloat01.prod.oami.eu
+    port: 83
+  cor:
+    host: int-cor-refactor-lbr.dev.oami.eu
+    port: 80
+  sap:
+    webservice.bankaccount:
+      uri: http://saperptci.test.oami.eu:8012/sap/bc/srt/rfc/sap/zbankaccount/999/zbankaccounteep/zbankaccounteep
+      username: webseruser
+      password: service01
+    sapclientaccount.url: http://saperpdev.dev.oami.eu:8000/sap/bc/srt/rfc/sap/zws_send_bank_details_003/925/zws_sendbankdetails_003/zbind_003
+    sapupdatebank.url:  http://saperpdev.dev.oami.eu:8000/sap/bc/srt/rfc/sap/zws_upd_bank_det_005/925/zws_updbankdetails_005/zbind_005
+    bankdetails.wsdl:
+      username: SOPRA_TEST
+      password: c12345678
+
+var.topic:
+  integration:
+    payment: integrable_payment
+    status: integrable_status
+  dlq:
+    invalidity: DLQ_INV
+  entity:
+    invalidity: ENTITY_INV
+
+### Load Balancers/haproxy ###
+var.lbr:
+  microservices-k8s:
+    url: int-microservices.dev.oami.eu
+  common-cb:
+    host: haproxy-integration-cb.dev.oami.eu
+    port: 80
+  iptool:
+    host: int-iptool-1-lbr.dev.oami.eu
+    port: 80
+  microproxy:
+    host: int-iptool-microproxy-lbr.dev.oami.eu
+    port: 12000
+  dos:
+    host: int-iptool-2-lbr.dev.oami.eu
+    port: 80
+  mule:
+    host: int-iptool-mule1-lbr.dev.oami.eu
+    port: 80
+  mule-fo:
+    host: int-iptool-mule2-lbr.dev.oami.eu
+    port: 80
+  faas:
+    host: test-functions.test.oami.eu
+    port: 80
+
+# Mapping Files
+mappings:
+  dozer: dozer/dozer-payment-mappings.xml
+
+# Kafka - Payment
+kafka:
+  producer:
+    TOPICS:
+      bootstrap_servers: ${var.corporate.kafka.servers}
+      key_serializer: org.apache.kafka.common.serialization.StringSerializer
+      value_serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      acks: all
+      retries: 2
+      client-id: PaymentMs
+  consumer:
+    topic:
+      enable.auto.commit: false
+      bootstrap_servers: ${var.corporate.kafka.servers}
+      key_deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value_deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      autocommit: false
+      sessionTimeout: 30000
+      max-poll-records: 100
+      groupId: payment-microservice-${var.corporate.kafka.environment}
+      heartbeatInterval: 5000
+      asynchronous: true
+      NOTIFICATION: NOTIFIABLE_LETTER
+
+##Integration
+
+## Integration - Kafka properties and SAP properties
+integration:
+  ## Please move these properties to a better place. Now is confusing, they seem related to the integration flow
+  sap.webservice:
+    uri: ${var.app.sap.webservice.bankaccount.uri}
+    username: ${var.app.sap.webservice.bankaccount.username}
+    password: ${var.app.sap.webservice.bankaccount.password}
+    read-timeout-ms: 30000
+    connection-timeout-ms: 30000
+  
+  temp-folder: /tmp
+  event:
+    producer:
+      topic: ${var.topic.integration.status}
+      kafka:
+        bootstrap.servers: ${var.corporate.kafka.servers}
+        acks: 1
+        retries: 1
+        key.serializer: org.apache.kafka.common.serialization.StringSerializer
+        value.serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+
+    consumer:
+      topic: ${var.topic.integration.payment}
+      kafka:
+        bootstrap.servers: ${var.corporate.kafka.servers}
+        key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+        value.deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+        group.id: international-integration-${var.corporate.kafka.environment}
+        enable.auto.commit: false
+        session.timeout.ms: 30000
+      idempotent:
+        cacheRegion: international-integration-${var.corporate.kafka.environment}
+        # Expiration time measured in seconds: 1209600 -> 2 weeks
+        expirationTime: 1209600
+      temp-folder: ${integration.temp-folder}
+
+## Integration - DOS REST microservice and DOS Consumer Adapter
+external.dos:
+  DOS_USER:
+  DOS_PASSWORD:
+  DOS_REST_ENDPOINT_PROTOCOL: http
+  DOS_REST_ENDPOINT_HOST: ${var.lbr.dos.host}
+  DOS_REST_ENDPOINT_PORT: ${var.lbr.dos.port}
+  DOS_REST_ENDPOINT_SAVEPORTFOLIO: /document-online/1.0/portfolioRequestMails
+  DOS_REST_ENDPOINT_SAVEPORTFOLIO_EXTENDED: /document-online/1.0/portfolioRequestMailsExtended
+  DOS_REST_ENDPOINT_DOCUMENTLIST: /document-online/1.0/{0}/{1}/documents/multipageDocument/{2}/{3}
+  DOS_CONSUMER_ADAPTER_ENDPOINT_USER: userdos
+  DOS_CONSUMER_ADAPTER_ENDPOINT_PASSWORD: ${var.mule.dos.password}
+  DOS_CONSUMER_ADAPTER_ENDPOINT_PROTOCOL: http
+  DOS_CONSUMER_ADAPTER_ENDPOINT_HOST: ${var.lbr.mule.host}
+  DOS_CONSUMER_ADAPTER_ENDPOINT_PORT: ${var.lbr.mule.port}
+  DOS_CONSUMER_ADAPTER_ENDPOINT_SIMPLEDOCUMENT: iptool/services/documentonline/consumer/v1/documents/simpleDocument/{0}
+  DOS_CONSUMER_ADAPTER_ENDPOINT_COPYDOCUMENTS:  iptool/services/documentonline/consumer/v1/documents/copyDocuments
+  DOS_CONSUMER_ADAPTER_ENDPOINT_SIMPLEDOCUMENT_HEIGHT_WIDTH:  iptool/services/documentonline/consumer/v1/documents/simpleDocument/{0}?height={1}&width={2}
+  DOS_CONSUMER_ADAPTER_ENDPOINT_CREATEDOCUMENT: iptool/services/documentonline/consumer/v1/{0}/{1}/documents/createDocumentFilesBackofficeAsync
+  DOS_CONSUMER_ADAPTER_ENDPOINT_COPYDOCUMENTSQUEUE: iptool/services/documentonline/consumer/v1/copy/{0}/{1}/{2}
+
+## Every 2 minutes
+scheduling.job.cron: 0 */10 * ? * *
+lock.at:
+  least.for: 5000
+  most.for: 10000
+
+#filenet queue for payment
+filenet.queue.payment:  REM_ACC_CPS_F
+
+## Entity Events
+# 'Related entities events' Producer and Consumer configuration
+entity.event:
+  producer:
+    topics.default: ${var.topic.entity.invalidity}
+    topics.DLQ: ${var.topic.dlq.invalidity}
+    kafka:
+      bootstrap.servers: ${var.corporate.kafka.servers}
+      acks: all
+      key.serializer: org.apache.kafka.common.serialization.StringSerializer
+      value.serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+  consumer:
+    topics: ${var.topic.entity.invalidity}
+    idempotent:
+      cacheRegion: INV
+      expirationTime: 1209600
+    kafka:
+      bootstrap.servers: ${var.corporate.kafka.servers}
+      key.deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value.deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      group.id: payment-event-${var.corporate.kafka.environment}
+      enable.auto.commit: false
+      auto.offset.reset: earliest
+      session.timeout.ms: 30000
+
+# SAP Service - Get Bank Details and Update Bank Details
+sap.service:
+  sapclientaccount.url: ${var.app.sap.sapclientaccount.url}
+  sapupdatebank.url: ${var.app.sap.sapupdatebank.url}
+
+sap.bankdetails.wsdl:
+  username: ${var.app.sap.bankdetails.wsdl.username}
+  password: ${var.app.sap.bankdetails.wsdl.password}
+
+# COR Server
+dossier.service.client:
+    protocol: http
+    host: cor-lbr.euipo.digisopra.inet
+    port: 12000
+    baseResourcePath: api/cor-refactor
+    version: ''
+    username: ''
+    password: ''
+
+var.system.users:
+  iptool:
+    username: iptsys
+    password: 'cGFzc3dvcmQx'
+
+system.user.username: ${var.system.users.iptool.username}
+system.user.password: ${var.system.users.iptool.password}
+
+external:
+# ADM - Consumer Adapter
+  adm:
+    ADM_CONSUMER_ADAPTER_ENDPOINT_BASE_RESOURCE_PATH: api/adm-service
+    ADM_CONSUMER_ADAPTER_ENDPOINT_USER:
+    ADM_CONSUMER_ADAPTER_ENDPOINT_PASSWORD:
+    ADM_CONSUMER_ADAPTER_ENDPOINT_HOST: ${var.lbr.microproxy.host}
+    ADM_CONSUMER_ADAPTER_ENDPOINT_PROTOCOL: http
+    ADM_CONSUMER_ADAPTER_ENDPOINT_PORT: ${var.lbr.microproxy.port}
+    ADM_CONSUMER_ADAPTER_ENDPOINT_OAUTH2_CLIENT_ID: ${var.app.adm.clientId}
+    ADM_CONSUMER_ADAPTER_ENDPOINT_OAUTH2_CLIENT_SECRET: ${var.app.adm.secret}
+    ADM_CONSUMER_ADAPTER_MAX_CONNECTIONS: 50
+    ADM_CONSUMER_ADAPTER_MAX_CONNECTIONS_BY_ROUTE: 50 

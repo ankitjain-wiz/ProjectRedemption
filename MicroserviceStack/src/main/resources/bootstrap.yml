@@ -1,0 +1,17 @@
+spring:
+  application.name: microservice-notification
+  cloud:
+    config:
+      server:
+        git:
+          uri: 
+
+  autoconfigure:
+    exclude : org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration  
+    
+#Server port
+server:
+  port : 8888
+ 
+
+    

@@ -1,0 +1,45 @@
+## Server
+server:
+  context-path: ''
+
+management:
+  context-path: /actuator
+  port: 8080
+
+## Application
+spring:
+  application.name: payment-microservice
+  messages.basename: i18n/common_error_messages, i18n/messages, i18n/general_messages, i18n/common_services_messages
+
+  #### Database configuration ####
+  datasource:
+    url: jdbc:informix-sqli://vxdifx22.oami.eu.int:2011/ctmcorrec:informixserver=emcorr_tcp;db_locale=en_US.819;JDBCTEMP=/tmp
+    username: dbctmexa
+    password: 's1lv3r10'
+    driverClassName: com.informix.jdbc.IfxDriver
+
+  ## HibernateJpaVendorAdapter properties
+  jpa:
+    showSql: false
+    hibernate.dialect: org.hibernate.dialect.InformixDialect
+
+## JSONDoc configuration
+jsondoc:
+  version: 1.0
+  basePath: ${server.context-path}
+  packages[0]: eu.euipo.microservice.payment.ws.controller
+  packages[1]: eu.euipo.microservice.payment.domain
+  playgroundEnabled: true
+  displayMethodAs: URI
+
+# Mapping Files
+mappings:
+  dozer: dozer/dozer-payment-mappings.xml
+
+integration:
+  sap.webservice:
+    uri: http://saperptci.test.oami.eu:8012/sap/bc/srt/rfc/sap/zbankaccount/999/zbankaccounteep/zbankaccounteep
+    username: webseruser
+    password: service01
+    read-timeout-ms: 30000
+    connection-timeout-ms: 30000

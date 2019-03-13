@@ -32,4 +32,10 @@ angular -ps course study
 angular- udemy course study
 react - ui
 
-aws and docker - cloud 
+aws and docker - cloud
+
+##interesting 
+google cloud vm spin
+docker -
+elk stack = elastic search , kibana , logstash
+tutorial - videos 

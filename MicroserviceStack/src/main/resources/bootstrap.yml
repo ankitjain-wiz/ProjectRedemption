@@ -5,6 +5,12 @@ spring:
       server:
         git:
           uri: file://D:/Ankit jain Work/LEARNING/ksessions/ProjectRainbow/testing
+#          https://innersource.soprasteria.com/EUIPO/Back-Office/microservices/configuration.git
+#          timeout: 10
+#          skipSslValidation: true
+#          username: ankit.jain42@sopra
+#          password: SopraSteria@1234
+#          force-pull: true
          
     
     consul:

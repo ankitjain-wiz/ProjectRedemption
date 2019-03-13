@@ -1,0 +1,21 @@
+spring:
+  application.name: microservice-notification
+  cloud:
+    config:
+      uri: http://microservices-config-server:8888
+      label: @spring.cloud.config.label@
+
+info:
+  app:
+    version: @project.version@
+    artifactId: @project.artifactId@
+    groupId: @project.groupId@
+    description: @project.description@
+	
+	
+	http://localhost:8888/microservice-notification/local
+	http://localhost:8888/microservice-notification/intcorrective
+	http://localhost:8888/microservice-notification/intadaptive
+	
+	
+	file://D:/Ankit jain Work/LEARNING/ksessions/ProjectRainbow/testing

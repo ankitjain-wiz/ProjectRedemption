@@ -1,0 +1,30 @@
+GIT-EUROPA
+https://git.euipo.europa.eu/projects/MS/repos/microservice-microproxy/browse/config/application.yml
+http://int-iptool-microproxy-lbr.dev.oami.eu:12000/payment-microservice/actuator/health
+
+
+https://callistaenterprise.se/blogg/teknik/2015/04/10/building-microservices-with-spring-cloud-and-netflix-oss-part-1/
+netflix eureka 
+netflix ribbon
+ntflix feign
+netflix hystrix
+netflix zuul
+cloud config server
+oauth2 spring security
+elk = elastic search,kibana,logstash
+
+https://github.com/Netflix-Skunkworks/zerotocloud
+
+$ curl -s -H "Accept: application/json" http://localhost:8761/eureka/apps
+curl -s localhost:48014/recommendation?productId=1
+
+https://howtodoinjava.com/spring-cloud/spring-cloud-api-gateway-zuul/
+https://springbootdev.com/2018/02/03/microservices-declare-zuul-routes-with-eureka-serviceid-spring-cloud-zuul-eureka/
+https://springbootdev.com/2018/02/01/microservices-request-routing-with-zuul-proxy-spring-boot-spring-cloud-netflix-zuul/
+https://grokonez.com/spring-framework/spring-cloud/configure-springboot-zuul-routing-filtering
+
+zuul.routes.student-service.path=/student-api/**
+zuul.routes.student-service.serviceId=STUDENT-SERVICE
+
+zuul.routes.department-courses-students.path = /departments/*/courses/*/students
+zuul.routes.department-courses-students.url = http://localhost:8081/departments

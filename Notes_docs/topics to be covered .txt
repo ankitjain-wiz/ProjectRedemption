@@ -52,3 +52,9 @@ docker
 promethus
 fluentd
 mean / mern 
+
+
+jackrabbit
+jacoco
+
+spring data jpa/criteria queries hibernate

@@ -29,14 +29,33 @@ logging
 xml returning service
 soap web service consume
 
-angular -ps course study
-angular- udemy course study
+angular -ps course study 
+angular http : project from pluralsight 
+mean stack- udemy course study
 react - ui
 
 aws and docker - cloud
+google cloud
 
 ##interesting 
 google cloud vm spin
 docker -
 elk stack = elastic search , kibana , logstash
 tutorial - videos 
+
+apache poi and zipping files = garima
+
+
+netflix oss microservices with kafka
+https://dzone.com/articles/microservices-with-netflix-oss-apache-kafka-and-do-1
+
+docker 
+promethus
+fluentd
+mean / mern 
+
+
+jackrabbit
+jacoco
+
+spring data jpa/criteria queries hibernate

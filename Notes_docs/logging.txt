@@ -1,0 +1,72 @@
+logging.level.some.package.path=DEBUG
+logging.level.some.other.package.path=ERROR
+logging.level.root=WARN
+logging.file=\path_to\logfile.log
+logging.level.root=WARN
+logging.level.com.baeldung=TRACE
+logging.level.com.howtodoinjava=DEBUG
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
+logging.file=c:/users/howtodoinjava/application-debug.log
+# Logging pattern for the console
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - %msg%n
+
+# Logging pattern for file
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+#logging.level.root=WARN
+ 
+logging.level.org.springframework.web=ERROR
+logging.level.com.howtodoinjava=DEBUG
+
+logging.level.org.springframework=DEBUG
+logging.level.com.howtodoinjava=DEBUG
+ 
+#output to a temp_folder/file
+logging.file=${java.io.tmpdir}/application.log
+ 
+# Logging pattern for the console
+logging.pattern.console= %d{yyyy-MM-dd HH:mm:ss} - %msg%n
+ 
+# Logging pattern for file
+logging.pattern.file= %d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter</artifactId>
+    <exclusions>
+        <exclusion>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </exclusion>
+    </exclusions>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-log4j2</artifactId>
+</dependency>
+
+
+Logger logger = LoggerFactory.getLogger(LoggingController.class);
+private final Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+logger.trace("A TRACE Message");
+logger.debug("A DEBUG Message");
+logger.info("An INFO Message");
+logger.warn("A WARN Message");
+logger.error("An ERROR Message");

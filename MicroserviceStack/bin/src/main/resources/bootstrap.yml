@@ -1,0 +1,30 @@
+spring:
+  application.name: microservice-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://D:/Ankit jain Work/LEARNING/ksessions/ProjectRainbow/testing
+#          https://innersource.soprasteria.com/EUIPO/Back-Office/microservices/configuration.git
+#          timeout: 10
+#          skipSslValidation: true
+#          username: ankit.jain42@sopra
+#          password: SopraSteria@1234
+#          force-pull: true
+         
+    
+    consul:
+      config:
+        enabled: false
+
+  autoconfigure:
+    exclude : org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration  
+    
+#Server port
+server:
+  port : 8888
+  
+  
+ 
+
+    

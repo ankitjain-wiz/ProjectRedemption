@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DataType>
+    <RequestType>ONE</RequestType>
+    <DesignApplication>TWO</DesignApplication>
+    <TradeMarkApplication>THREE</TradeMarkApplication>
+    <OtherApplication>FOUR</OtherApplication>
+    <PersonsApplication>FIVE</PersonsApplication>
+    <AppealApplicationDetails>SIX</AppealApplicationDetails>
+    <ApplicantDetails>SEVEN</ApplicantDetails>
+    <RepresentativeDetails>EIGHT</RepresentativeDetails>
+    <InspectionRequestApplication>NINE</InspectionRequestApplication>
+    <CurrentAccountApplication>TEN</CurrentAccountApplication>
+    <ReimbursementApplication>ELEVEN</ReimbursementApplication>
+    <OtherAttachmentsDetails>TWELVE</OtherAttachmentsDetails>
+    <ProceedingLanguageCode>THIRTEEN</ProceedingLanguageCode>
+    <Comment>
+        <CommentOne>CommentOne</CommentOne>
+        <CommentTwo>CommentTwo</CommentTwo>
+    </Comment>
+    <SignatoryDetails>FIFTEEN</SignatoryDetails>
+</DataType>

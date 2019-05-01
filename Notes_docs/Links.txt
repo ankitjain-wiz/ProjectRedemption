@@ -48,6 +48,8 @@ https://cloud.spring.io/spring-cloud-config/multi/multi__spring_cloud_config_ser
 Eureka:
 https://howtodoinjava.com/spring-cloud/spring-cloud-service-discovery-netflix-eureka/
 
+https://www.javainuse.com/spring/spring-cloud-netflix-zuul-tutorial
+
 
 
 

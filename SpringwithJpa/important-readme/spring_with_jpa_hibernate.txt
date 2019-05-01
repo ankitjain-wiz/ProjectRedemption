@@ -1,0 +1,16 @@
+https://www.websparrow.org/spring/spring-boot-restful-crud-example-with-mysql-database
+https://loiane.com/2019/01/crud-rest-api-using-spring-boot-2-hibernate-jpa-and-mysql/
+https://www.javahelps.com/2017/11/restful-crud-with-java-and-mysql-in.html
+https://hellokoding.com/full-stack-crud-web-app-and-restful-apis-web-services-example-with-spring-boot-jpa-hibernate-mysql-vuejs-and-docker/
+
+https://howtodoinjava.com/spring-boot/logging-application-properties/
+https://www.springboottutorial.com/hibernate-jpa-tutorial-with-spring-boot-starter-jpa
+
+
+important:
+https://java2blog.com/spring-boot-hibernate-example/
+http://candidjava.com/tutorial/spring-boot-hibernate-crud-example/
+
+important
+packages to scan : entity scan : repositories
+https://www.petrikainulainen.net/programming/spring-framework/spring-data-jpa-tutorial-part-one-configuration/

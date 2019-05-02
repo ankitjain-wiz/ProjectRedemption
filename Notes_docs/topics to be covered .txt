@@ -59,3 +59,8 @@ jackrabbit
 jacoco
 
 spring data jpa/criteria queries hibernate
+
+
+settings:
+architecture 
+spring aop pointcut aspect

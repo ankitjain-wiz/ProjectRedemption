@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.epo.cms.edfs.services</groupId>
+		<artifactId>services-parent</artifactId>
+		<version>1.0.7-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>settings</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<!-- The version is set specificly to include the DEV work so that it is 
+		clear at all times, not only by the name of the artefact but also from the 
+		version number. The version number should not be changed. As this is THE 
+		dev branch, we should not execute any releases. Releases only happen from 
+		the trunk. Deployments will ONLY happen from the workspace, not from the 
+		Nexus repository. If all goes well, these artefacts should NEVER appear in 
+		NEXUS. -->
+
+	<name>Settings Service</name>
+	<description>Service for Settings to database system.</description>
+
+
+	<organization>
+		<name>European Patent Office</name>
+		<url>http://www.epo.org/</url>
+	</organization>
+
+
+	<developers>
+		<developer>
+			<id>Test</id>
+			<name>Tester</name>
+			<email>tester@epo.org</email>
+			<organization>SopraSteria</organization>
+			<timezone>+1</timezone>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+
+	<scm>
+		<connection>scm:svn:http://svn.internal.epo.org/repo/examination-formalities/cms/edfs/services/settings/trunk/</connection>
+		<developerConnection>scm:svn:http://svn.internal.epo.org/repo/examination-formalities/cms/edfs/services/settings/trunk/</developerConnection>
+		<url>http://svn.internal.epo.org/repo/examination-formalities/cms/edfs/services/settings/trunk/</url>
+	</scm>
+
+
+	<ciManagement>
+		<system>The eDFS Settings Service.</system>
+		<url>http://luu698d:8080/job/S2</url>
+	</ciManagement>
+
+
+	<modules>
+		<module>service</module>
+		<module>war</module>
+		<module>ear</module>
+		<module>amf</module>
+	</modules>
+
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<artefact.file.name>settings</artefact.file.name>
+	</properties>
+
+
+	<dependencyManagement>
+		<dependencies>
+		
+
+			
+		</dependencies>
+	</dependencyManagement>
+
+
+	<build>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.2.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>MainJava</mainClass>
+					<arguments>
+						<argument>foo</argument>
+						<argument>bar</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+						<configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+
+
+
+			<!-- Jenkins jobs (see http://confluence-p.internal.epo.org/display/ITRP0546/Configuring+EPO+Jenkins+plugin+for+Maven) -->
+			<!-- Run : mvn epojenkins:create-ci-jobs : to add jobs to jenkins and 
+				mvn epojenkins:remove-ci-jobs : to remove the jobs mvn epojenkins:help -Ddetail=true 
+				: to show the help With Jenkins authentication enabled, you'll need to specify 
+				username and password in the command line explicitly: mvn epojenkins:create-ci-jobs 
+				-Depojenkins.username=<your_userid> -Depojenkins.password=<your_password 
+				or Jenkins_API_token> -->
+
+			<plugin>
+				<groupId>org.epo.common.maven.plugins</groupId>
+				<artifactId>epo-maven-jenkins-plugin</artifactId>
+				<configuration>
+					<jobLayoutDescriptor>nightly.release</jobLayoutDescriptor>
+
+					<!-- ATTENTION This is set to FALSE on purpose to avoid the recreation 
+						of the defined jobs. These jobs have been changed after creation in jenkins 
+						to allows for configuration changes that can not be specified using the EPO 
+						plugin. -->
+					<overwriteExistingJobs>false</overwriteExistingJobs>
+
+					<jobLayoutDescriptorParameters>
+						<projectDevelopers>SS89655@epo.org</projectDevelopers>
+						<!-- Nightly Build -->
+						<nightlyBuildName>deploy-settings</nightlyBuildName>
+						<!--No test as part of the nightly build. Needs to be updated later. -->
+						<nightlyBuildGoals>clean install -Dmaven.test.skip=true</nightlyBuildGoals>
+						<nightlyPollScm>true</nightlyPollScm>
+						<nightlyBuildProfiles />
+						<!-- No Sonar. Sonar does not like Java 8. -->
+						<sonar>false</sonar>
+
+						<!-- ADS Deployment -->
+						<ads>true</ads>
+						<!-- Path to the amf artifact(s) in the jenkins workspace -->
+						<adsPackageWorkspaceLocation>amf/target/*.zip</adsPackageWorkspaceLocation>
+						<!-- Identifier for an ADS vertical TEST, INTG, UAT, OSA, PROD -->
+						<adsServiceId>19</adsServiceId>
+						<!-- should the build wait for the deployed application to start? -->
+						<adsWaitForStart>true</adsWaitForStart>
+
+
+						<!-- Release Build -->
+						<releaseBuildName>release-build-${project.artifactId}</releaseBuildName>
+						<releaseBuildGoals>clean release:prepare-with-pom release:perform</releaseBuildGoals>
+					</jobLayoutDescriptorParameters>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

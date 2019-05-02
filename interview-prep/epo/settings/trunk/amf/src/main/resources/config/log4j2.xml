@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="60">
+    <Properties>
+    	<Property name="LOG_DIR">D:/var/tmp/logs</Property>
+    	<Property name="LOG_MAX_FILE_SIZE">200 MB</Property>
+    	<Property name="LOG_MAX_FILE_INDEX">5</Property>
+    	<Property name="PATTERN">%d [%t][%C] %p - %m%n</Property>
+    	<Property name="APPLICATION_LOG_LEVEL">TRACE</Property>
+    </Properties>
+    <Appenders>
+        <RollingFile name="logFile"
+                     fileName="${LOG_DIR}/application.log"
+                     filePattern="${LOG_DIR}/application.log.%d{yyyy-MM-dd}">
+			<PatternLayout pattern="${PATTERN}"/>
+            <Policies>
+				<TimeBasedTriggeringPolicy/>
+				<SizeBasedTriggeringPolicy size="${LOG_MAX_FILE_SIZE}"/>
+        	</Policies>
+        	<DefaultRolloverStrategy max="${LOG_MAX_FILE_INDEX}"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="${APPLICATION_LOG_LEVEL}">
+            <AppenderRef ref="logFile"/>
+        </Root>
+    </Loggers>
+</Configuration>

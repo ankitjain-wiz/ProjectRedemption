@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Implementation-Title: services-dossierpersistence
+Implementation-Version: 1.1.1-SNAPSHOT
+Build-Timestamp: 2019-05-02 05:01:15 +0000
+Built-By: ankitjain2
+Build-Tag: Local Build
+Implementation-Vendor-Id: org.epo.cms.edfs.services
+Build-Jdk: 1.8.0_111
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: European Patent Office
+SVN-Revision: Local Build
+

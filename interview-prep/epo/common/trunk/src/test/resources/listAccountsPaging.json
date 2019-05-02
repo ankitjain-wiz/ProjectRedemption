@@ -1,0 +1,10 @@
+{"List_user_accounts":{
+	"paging":{
+		"totalresults":{"@type":"number","#text":"9378"},
+		"pagesize":{"param":"pagesize","currentpagesize":{"@type":"number","#text":"25"},"option":[
+			{"@type":"number","#text":"10"},
+			{"@type":"number","#text":"25"},
+			{"@type":"number","#text":"50"},
+			{"@type":"number","#text":"15000"}]},
+		"param":"page","currentpage":{"@type":"number","#text":"1"},
+		"maxpages":{"@type":"number","#text":"376"}}}}

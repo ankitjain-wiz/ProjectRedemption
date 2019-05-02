@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.epo.cms.edfs.services</groupId>
+		<artifactId>services-parent</artifactId>
+		<version>1.0.6</version>
+	</parent>
+
+	<artifactId>services-dossierpersistence</artifactId>
+	<version>1.1.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<scm>
+		<connection>scm:svn:http://svn.internal.epo.org/repo/examination-formalities/cms/edfs/services/dossierpersistence/trunk/</connection>
+		<developerConnection>scm:svn:http://svn.internal.epo.org/repo/examination-formalities/cms/edfs/services/dossierpersistence/trunk/</developerConnection>
+		<url>http://svn.internal.epo.org/repo/examination-formalities/cms/edfs/services/dossierpersistence/trunk/</url>
+	</scm>
+
+
+	<ciManagement>
+		<system>Parent for the different Support Services for the eDFS project.</system>
+		<url>http://luu698d:8080/job/S2</url>
+	</ciManagement>
+
+	<properties>
+		<hibernate.version>4.2.17.SP1-redhat-1</hibernate.version>		
+	</properties>
+
+	<dependencies>
+
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.8.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.hateoas</groupId>
+			<artifactId>spring-hateoas</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.8</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>1.6.6</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.powermock/powermock-module-junit4 -->
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>1.6.6</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+			<version>3.21.0-GA</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+
+		<!-- expose swagger doc in <contextRoot>/v2/api-docs -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+		</dependency>
+
+		<!-- present swagger doc in swagger-ui <contextRoot>/swagger-ui.html -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+		</dependency>		
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.5</version>
+		</dependency>	
+		
+		<!-- AOP + AspectJ Dependencies -->
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.8.9</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.9</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-c3p0</artifactId>
+			<version>4.1.12.Final</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+     		<groupId>com.microsoft.sqlserver</groupId>
+     		<artifactId>sqljdbc</artifactId>
+    		<version>4.1</version>		
+		</dependency>
+		
+	</dependencies>
+	
+	
+	<build>
+		<plugins>
+			<!--
+				Jenkins jobs (see http://confluence-p.internal.epo.org/display/ITRP0546/Configuring+EPO+Jenkins+plugin+for+Maven)
+			-->
+			<!--
+			Run :
+				mvn epojenkins:create-ci-jobs : to add jobs to jenkins and
+				mvn epojenkins:remove-ci-jobs : to remove the jobs
+				mvn epojenkins:help -Ddetail=true : to show the help
+				
+				With Jenkins authentication enabled, you'll need to specify username and password in the command line explicitly:
+				mvn epojenkins:create-ci-jobs -Depojenkins.username=<your_userid> -Depojenkins.password=<your_password or Jenkins_API_token>
+			-->
+
+			<plugin>
+				<groupId>org.epo.common.maven.plugins</groupId>
+				<artifactId>epo-maven-jenkins-plugin</artifactId>
+				<configuration>
+					<jobLayoutDescriptor>basic.json</jobLayoutDescriptor>
+					<overwriteExistingJobs>true</overwriteExistingJobs>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,23 @@
+{
+	"List_user_accounts": {
+		"_links": {
+			"self": {
+				"href": "/AccountManagement/ListAccounts"
+			},
+			"api_doc": {
+				"href": "/api-docs/AccountManagement/ListAccounts"
+			}
+		},
+		"filter": [{
+			"stringfilter": {
+				"param": "OrganisationID",
+				"label": "Organisation ID"
+			}
+		}, {
+			"stringfilter": {
+				"param": "UserID",
+				"label": "User ID"
+			}
+		}]
+	}
+}

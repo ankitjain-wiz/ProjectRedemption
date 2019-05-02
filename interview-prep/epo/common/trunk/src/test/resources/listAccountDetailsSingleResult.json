@@ -1,0 +1,56 @@
+{"List_user_accounts":
+	{"_links": {
+		"self":{"href":"/AccountManagement/ListAccounts"},
+		"api_doc":{"href":"/api-docs/AccountManagement/ListAccounts"}},
+		"filter":[
+			{"stringfilter":{"param":"OrganisationID","label":"Organisation ID"}},
+			{"stringfilter":{"param":"UserID","label":"User ID","value":"PV53311"}},
+			{"choicefilter":{"param":"RoleName","label":"Functional roles","options":[
+				{"key":"director","count":{"@type":"number","#text":"0"},"label":"Director"},
+				{"key":"examiner","count":{"@type":"number","#text":"0"},"label":"Examiner"},
+				{"key":"formalities_officer","count":{"@type":"number","#text":"0"},"label":"Formalities officer"},
+				{"key":"seca_expert","count":{"@type":"number","#text":"0"},"label":"Seca expert"},
+				{"key":"stock_manager","count":{"@type":"number","#text":"0"},"label":"Stock manager"},
+				{"key":"team_manager","count":{"@type":"number","#text":"0"},"label":"Team manager"},
+				{"key":"system_admin","count":{"@type":"number","#text":"1"},"label":"System admin"},
+				{"key":"LPS","count":{"@type":"number","#text":"0"},"label":"LPS"},
+				{"key":"Deputy","count":{"@type":"number","#text":"0"},"label":"Deputy"}]}},
+			{"choicefilter":{"param":"location","label":"Location","options":[
+				{"key":"AM_EOL_Berlin","count":{"@type":"number","#text":"0"},"label":"Berlin"},
+				{"key":"AM_EOL_TheHague","count":{"@type":"number","#text":"1"},"label":"The Hague"},
+				{"key":"AM_EOL_Munich","count":{"@type":"number","#text":"0"},"label":"Munich"},
+				{"key":"AM_EOL_Vienna","count":{"@type":"number","#text":"0"},"label":"Vienna"},
+				{"key":"AM_EOL_Brussels","count":{"@type":"number","#text":"0"},"label":"Brussels"}]}},
+			{"stringfilter":{"param":"FullName","label":"User name"}},
+			{"stringfilter":{"param":"C1_1_OrgUnitNumber","label":"Dept. Number"}}],
+		"dynamicschema":{
+			"PreferredLanguage":[{"code":"en_EN","label":"English"},{"code":"fr_FR","label":"FranÃ§ais"},{"code":"de_DE","label":"Deutsch"}],
+			"RoleName":[{"code":"director","label":"Director"},{"code":"examiner","label":"Examiner"},{"code":"formalities_officer","label":"Formalities officer"},{"code":"seca_expert","label":"Seca expert"},{"code":"stock_manager","label":"Stock manager"},{"code":"team_manager","label":"Team manager"},{"code":"system_admin","label":"System admin"},{"code":"LPS","label":"LPS"},{"code":"Deputy","label":"Deputy"}],
+			"location":[{"code":"AM_EOL_Berlin","label":"Berlin"},{"code":"AM_EOL_TheHague","label":"The Hague"},{"code":"AM_EOL_Munich","label":"Munich"},{"code":"AM_EOL_Vienna","label":"Vienna"},{"code":"AM_EOL_Brussels","label":"Brussels"}]},
+		"paging":{
+			"totalresults":{"@type":"number","#text":"1"},
+			"pagesize":{"param":"pagesize","currentpagesize":{"@type":"number","#text":"25"},"option":[{"@type":"number","#text":"10"},{"@type":"number","#text":"25"},{"@type":"number","#text":"50"},{"@type":"number","#text":"15000"}]},
+			"param":"page",
+			"currentpage":{"@type":"number","#text":"1"},
+			"maxpages":{"@type":"number","#text":"1"}},
+		"sorting":{
+			"param":"sort",
+			"currentsort":"CASENAME desc","option":["OrganisationID","PreferredLanguage","CASENAME","UserID","ID","givenName","familyName","location","email","telephoneNumber"]},
+		"_embedded":{"results":{"@class":"array","results":
+			{"User_account":{
+				"_id":{"@type":"number","#text":"51940"},
+				"_links":{
+					"self":{"href":"/AccountManagement/ref_ACMUsr/51940"},
+					"RelatedOrganisations":{"href":"/AccountManagement/ListAccounts/51940/RelatedOrganisations"}},
+				"OrganisationID":"2838",
+				"Organisation":"Common Build",
+				"PreferredLanguage":"en_EN",
+				"CASENAME":"PV53311 Patrick Vanbrabant",
+				"UserID":"PV53311",
+				"ID":{"@type":"number","#text":"51940"},
+				"givenName":"Patrick",
+				"familyName":"Vanbrabant",
+				"RoleName":{"@class":"array","option":"system_admin"},
+				"location":"AM_EOL_TheHague",
+				"email":"pvbrabant@epo.org",
+				"telephoneNumber":"2166"}}}}}}

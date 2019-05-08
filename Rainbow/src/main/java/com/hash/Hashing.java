@@ -17,6 +17,7 @@ public class Hashing {
 		System.out.println("\n");
 		ankitset.stream().forEach(System.out::print);  // donot maintains order
 		
+		
 		Map<String,Integer> ankitMap=new HashMap<>();
 		System.out.println("\n");
 		System.out.println(ankitMap.put("first", 10));
@@ -29,6 +30,10 @@ public class Hashing {
 			System.out.println(x.getKey() +"--"+	x.getValue());
 			});
 		
+		
+		ankitMap.entrySet().stream().forEach(x->{
+			System.out.println(x.getKey() +"--"+	x.getValue());
+			});
 		
 		ankitMap.forEach((k,v)->{
 			System.out.println(k +"--"+	v);

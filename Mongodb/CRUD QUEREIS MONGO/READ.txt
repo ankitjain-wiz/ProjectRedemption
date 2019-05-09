@@ -1,0 +1,39 @@
+
+db.getCollection('TEST').find({})
+
+db.getCollection('TEST').find().sort({duration:1})  
+
+db.getCollection('TEST').find({duration:"2 days"}).pretty()
+
+
+db.getCollection('TEST').find({
+    
+  
+    "details" : {
+        "duration" : "2 days",
+        "Trainer" : "Ankit Jain"
+    }
+    
+})
+
+
+
+db.getCollection('TEST').find(
+    {},
+    {
+        "details.duration":1
+    }
+  
+    
+)
+
+
+
+db.getCollection('TEST').find(
+    
+    {
+        "details.duration":"2 days"
+    }
+  
+    
+)

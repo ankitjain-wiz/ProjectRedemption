@@ -1,0 +1,31 @@
+db.createCollection("ankitPpt") 
+db.ankitPpt.insert({"name" : "Ankit", "team" : "Real Madrid"})
+db.ankitPpt.drop()  
+
+
+db.ankitPpt.insert(  
+   {  
+     course: "MongoDb",  
+     details: {  
+        duration: "2 days",  
+        Trainer: "Ankit Jain"  
+     },  
+     Batch: [ { size: "Small", qty: 10 }, { size: "Medium", qty: 20 } ],  
+     category: "Database"  
+   }  
+)  
+
+db.javatpoint.find()  
+
+db.javatpoint.update({'course':'java'},{$set:{'course':'android'}})  
+
+db.javatpoint.remove({})  
+
+db.javatpoint.remove( { type : "programming language" } )  
+db.javatpoint.remove( { type : "programming language" }, 1 )  
+
+db.COLLECTION_NAME.find().sort({KEY:1})  
+
+=====================================================================================================================================================================
+
+Aggregation Pipeline 

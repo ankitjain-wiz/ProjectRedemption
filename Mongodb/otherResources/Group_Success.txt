@@ -1,0 +1,36 @@
+
+
+
+
+db.getCollection('ankitCollection').aggregate([
+  
+    {
+    $group: {
+      _id: {directorate:"$directorate",phaseIndicator:"$phaseIndicator",readIndicator:"$readIndicator"},
+      dprcount: {$sum: 1},
+      dprdata: { $push: "$$ROOT" }
+    }
+  },{$unwind: 
+    {path: '$dprdata'}
+    
+  },
+  
+  {
+    $group: {
+      _id: {directorate:"$dprdata.directorate",phaseIndicator:"$dprdata.phaseIndicator"},
+      dpcount: {$sum: 1},
+      dpdata: { $push: "$$ROOT" }
+    }
+  },{$unwind: 
+    {path: '$dpdata'}
+    
+  },{
+    $group: {
+      _id:{directorate:"$dpdata.dprdata.directorate"},
+      dcount: {$sum: 1},
+      ddata: { $push: "$$ROOT" }
+    }
+  }
+  
+  
+])

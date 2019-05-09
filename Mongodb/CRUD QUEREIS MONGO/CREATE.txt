@@ -1,0 +1,62 @@
+db.createCollection("TEST")
+
+
+
+
+
+db.getCollection('TEST').insert(  
+   {  
+     course: "MongoDb",  
+     details: {  
+        duration: "2 days",  
+        Trainer: "Ankit Jain"  
+     },  
+     Batch: [ { size: "Small", qty: 10 }, { size: "Medium", qty: 20 } ],  
+     category: "Database"  
+   }  
+) 
+
+
+
+db.getCollection('TEST').insert(  
+   {  
+     course: "Microservices",  
+     details: {  
+        duration: "3 days",  
+        Trainer: "Lalit"  
+     },  
+     Batch: [ { size: "Small", qty: 10 }, { size: "Medium", qty: 20 } ],  
+     category: "Architechture"  
+   }  
+) 
+
+
+db.getCollection('TEST').insert(  
+   {  
+     course: "java",  
+     details: {  
+        duration: "3 days",  
+        Trainer: "dinesh"  
+     },  
+     Batch: [ { size: "Small", qty: 10 }, { size: "Medium", qty: 20 } ],  
+     category: "Programming"  
+   }  
+) 
+
+db.getCollection('TEST').insert(  
+   {  
+     course: "java",  
+     details: {  
+        duration: "3 days",  
+        Trainer: "vibhuti"  
+     },  
+     Batch: [ { size: "Small", qty: 10 }, { size: "Medium", qty: 20 } ],  
+     category: "Programming"  
+   }  
+)
+
+
+
+
+
+

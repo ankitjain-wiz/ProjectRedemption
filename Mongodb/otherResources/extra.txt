@@ -1,0 +1,37 @@
+db.getCollection('TEST').find({
+details:{
+duration:"3 days"}
+})
+
+
+
+db.getCollection('TEST').find(
+    {},
+    {
+        "details.duration":1
+    }
+  
+    
+)
+
+
+
+db.getCollection('TEST').find(
+    
+    {
+        "details.duration":"2 days"
+    }
+  
+    
+)
+
+
+SELECT hosting, SUM(hosting) AS total
+       FROM website
+       GROUP BY hosting
+	   
+	   db.website.aggregate(
+    { 
+	$group : {_id : "$hosting", total : { $sum : 1 }}
+    }
+  );

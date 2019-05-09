@@ -1,0 +1,8 @@
+
+db.getCollection('TEST').remove({})  
+
+
+db.getCollection('TEST').remove( { 'course':'android' }, 1 )
+db.getCollection('TEST').remove( { course:"android"} )   
+
+db.ankitPpt.drop() 

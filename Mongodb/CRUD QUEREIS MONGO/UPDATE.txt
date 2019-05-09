@@ -1,0 +1,6 @@
+
+db.getCollection('TEST').update({'course':'java'},{$set:{'course':'android'}})
+
+db.getCollection('TEST').update({'course':'java'},{$set:{'course':'android'}},{multi:true})
+
+db.getCollection('TEST').update({'course':'MongoDb'},{$set:{'course':'android'}},{multi:false})

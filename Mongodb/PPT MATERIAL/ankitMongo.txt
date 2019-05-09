@@ -1,0 +1,28 @@
+https://www.incapsula.com/cdn-guide/what-is-cdn-how-it-works.html
+ng serve --open
+node server
+
+
+wmic os get caption
+wmic os get osarchitecture
+
+
+https://blog.timescale.com/why-sql-beating-nosql-what-this-means-for-future-of-data-time-series-database-348b777b847a
+
+https://www.alooma.com/blog/types-of-modern-databases
+
+https://medium.com/@garyorenstein/did-google-send-the-big-data-industry-on-a-10-year-head-fake-9c94d553925a
+
+https://blog.timescale.com/why-sql-beating-nosql-what-this-means-for-future-of-data-time-series-database-348b777b847a
+
+https://www.mongodb.com/compare/mongodb-mysql
+
+https://medium.com/xplenty-blog/the-sql-vs-nosql-difference-mysql-vs-mongodb-32c9980e67b2
+
+
+
+
+https://www.javatpoint.com/mongodb-features
+
+
+https://www.thoughtworks.com/insights/blog/nosql-databases-overview

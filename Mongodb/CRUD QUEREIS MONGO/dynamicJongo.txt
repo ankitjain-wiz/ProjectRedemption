@@ -1,0 +1,45 @@
+
+
+db.getCollection('ankit2Collection').aggregate([
+   {
+    $addFields: {
+      
+      feild1: "$directorate",
+	  feild2: "$phaseIndicator",
+	  feild3: "$readIndicator",
+	  
+    }
+  },
+    {
+    $group: {
+      _id: {directorate:"$feild1",phaseIndicator:"$feild2",readIndicator:"$feild3"},
+      dprcount: {$sum: 1},
+      dprdata: { $push: "$$ROOT" }
+    }
+  },{$unwind: 
+    {path: '$dprdata'}
+    
+  },
+  
+  {
+    $group: {
+      _id: {directorate:"$dprdata.feild1",phaseIndicator:"$dprdata.feild2"},
+      dpcount: {$sum: 1},
+      dpdata: { $push: "$$ROOT" }
+    }
+  },{$unwind: 
+    {path: '$dpdata'}
+    
+  },{
+    $group: {
+      _id:{directorate:"$dpdata.dprdata.feild1"},
+      dcount: {$sum: 1},
+	  dpcount:{$push: "$dpcount"},
+	  dprcount:{$push: "$dpdata.dprcount"},
+      ddata: { $push: "$$ROOT" }
+    }
+  }
+  
+  
+  
+])

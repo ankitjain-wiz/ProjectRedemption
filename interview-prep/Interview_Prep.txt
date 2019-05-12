@@ -1,0 +1,49 @@
+https://www.baeldung.com/java-8-interview-questions
+https://javarevisited.blogspot.com/2017/08/top-10-java-concurrenthashmap-interview.html
+https://howtodoinjava.com/java/basics/jdk-jre-jvm/
+https://www.geeksforgeeks.org/equals-hashcode-methods-java/
+https://www.journaldev.com/1321/java-string-interview-questions-and-answers
+
+https://javarevisited.blogspot.com/2017/08/top-10-java-concurrenthashmap-interview.html ==== see below
+https://examples.javacodegeeks.com/core-java/lang/java-equals-method-example/
+
+
+
+==============================Data structure=================================================
+https://www.geeksforgeeks.org/top-20-linked-list-interview-question/
+give more time to linked list-interview-question/
+
+stacks / queues (geeks for geeks) from geeks for geeks
+==============================Data structure=================================================
+
+==============================Garbage Collector=================================================
+https://javarevisited.blogspot.com/2013/01/difference-between-stack-and-heap-java.html
+https://javarevisited.blogspot.com/2011/09/javalangoutofmemoryerror-permgen-space.html
+
+
+
+Exception Handling
+https://www.javatpoint.com/multiple-catch-block-in-java
+https://www.javatpoint.com/finally-block-in-exception-handling
+
+
+
+Spring
+http://websystique.com/spring/spring-dependency-injection-annotation-beans-auto-wiring-using-autowired-qualifier-resource-annotations-configuration/
+
+https://www.baeldung.com/spring-core-annotations
+https://www.edureka.co/blog/spring-tutorial/#Advantages
+https://www.edureka.co/blog/interview-questions/spring-interview-questions/
+
+
+
+Spring Boot
+https://www.baeldung.com/spring-boot-actuators
+https://www.springboottutorial.com/spring-boot-auto-configuration
+
+
+
+Microservice and spring cloud
+https://cloudacademy.com/blog/microservices-architecture-challenge-advantage-drawback/
+https://www.javacodegeeks.com/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway.html
+https://www.javacodegeeks.com/2018/03/microservices-part-5-spring-cloud-zuul-proxy-as-api-gateway.html

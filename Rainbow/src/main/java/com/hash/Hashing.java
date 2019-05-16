@@ -9,6 +9,11 @@ public class Hashing {
 
 	public static void main(String[] args) {
 		
+		/*int array[]=new int[10];
+		String array2[]=new String[10];
+		boolean array3[]=new boolean[10];*/
+
+		
 		Set<String> ankitset=new HashSet<>();
 		System.out.println(ankitset.add("first"));
 		System.out.println(ankitset.add("second"));

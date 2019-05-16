@@ -1,0 +1,18 @@
+Static 
+
+https://www.geeksforgeeks.org/static-class-in-java/
+https://www.journaldev.com/1365/static-keyword-in-java
+https://www.journaldev.com/1365/static-keyword-in-java/
+https://www.javainterviewpoint.com/top-10-java-interview-questions-on-static-keyword/
+https://www.javainterviewpoint.com/can-we-overload-static-methods-in-java/
+http://geekexplains.blogspot.com/2008/06/can-you-override-static-methods-in-java.html
+
+
+Inner :
+https://www.programiz.com/java-programming/nested-inner-class
+
+
+equals:
+very good and important
+https://www.geeksforgeeks.org/interesting-interview-question-hashcode-equals-method/
+https://www.java67.com/2012/11/difference-between-operator-and-equals-method-in.html
